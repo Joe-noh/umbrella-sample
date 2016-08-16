@@ -12,7 +12,7 @@ defmodule BasketManager do
     Supervisor.start_link(children, opts)
   end
 
-  def new do
+  def new_basket do
     BasketManager.BasketSup.new_child
   end
 

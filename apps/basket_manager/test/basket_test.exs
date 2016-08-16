@@ -3,7 +3,7 @@ defmodule BasketTest do
   doctest BasketManager
 
   test "worker can hold a basket" do
-    {:ok, basket} = BasketManager.new
+    {:ok, basket} = BasketManager.new_basket
 
     BasketManager.add_item(basket, %BasketManager.Item{price: 500})
 
