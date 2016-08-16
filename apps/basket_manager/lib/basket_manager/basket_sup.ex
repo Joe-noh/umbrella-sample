@@ -1,4 +1,4 @@
-defmodule Basket.WorkerSup do
+defmodule BasketManager.BasketSup do
   use Supervisor
 
   def start_link do
@@ -7,7 +7,7 @@ defmodule Basket.WorkerSup do
 
   def init(_) do
     children = [
-      worker(Basket.Worker, [])
+      worker(BasketManager.Basket, [])
     ]
 
     supervise(children, strategy: :simple_one_for_one)

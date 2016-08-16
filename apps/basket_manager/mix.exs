@@ -1,8 +1,8 @@
-defmodule Basket.Mixfile do
+defmodule BasketManager.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :basket,
+    [app: :basket_manager,
      version: "0.1.0",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
@@ -19,7 +19,7 @@ defmodule Basket.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     [applications: [:logger],
-     mod: {Basket, []}]
+     mod: {BasketManager, []}]
   end
 
   # Dependencies can be Hex packages:

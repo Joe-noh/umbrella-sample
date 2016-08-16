@@ -1,5 +1,7 @@
-defmodule Basket.Worker do
+defmodule BasketManager.Basket do
   use GenServer
+
+  defstruct items: []
 
   # callbacks
 
@@ -7,10 +9,10 @@ defmodule Basket.Worker do
     GenServer.start_link(__MODULE__, nil)
   end
 
-  def init(_), do: {:ok, %Basket{}}
+  def init(_), do: {:ok, %BasketManager.Basket{}}
 
   def handle_cast({:add_item, item}, basket = %{items: items}) do
-    new_state = %Basket{basket | items: [item | items]}
+    new_state = %BasketManager.Basket{basket | items: [item | items]}
 
     {:noreply, new_state}
   end
