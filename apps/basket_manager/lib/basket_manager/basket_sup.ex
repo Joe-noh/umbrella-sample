@@ -13,7 +13,7 @@ defmodule BasketManager.BasketSup do
     supervise(children, strategy: :simple_one_for_one)
   end
 
-  def new_child do
-    Supervisor.start_child(__MODULE__, [])
+  def new_child(basket_id) do
+    Supervisor.start_child(__MODULE__, [basket_id])
   end
 end
