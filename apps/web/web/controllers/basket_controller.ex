@@ -3,7 +3,7 @@ defmodule Web.BasketController do
 
   def show(conn, %{"basket_id" => basket_id}) do
     basket_content = BasketManager.basket_content(basket_id)
-    render(conn, "show.html", content: basket_content)
+    render(conn, "show.html", content: basket_content, basket_id: basket_id)
   end
 
   def new(conn, _params) do

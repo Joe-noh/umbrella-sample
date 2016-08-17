@@ -20,3 +20,5 @@
   </tbody>
 </table>
 <% end %>
+
+<%= button("適当に商品を入れる", to: basket_item_path(@conn, :create, @basket_id), class: "btn btn-primary") %>
