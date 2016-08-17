@@ -1,0 +1,22 @@
+<h2>カゴのなか</h2>
+
+<%= if Enum.empty?(@content) do %>
+<p>空っぽです</p>
+<% else %>
+<table class="table">
+  <thead>
+    <tr>
+      <th>お品物</th>
+      <th>お値段</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= for item <- @content.items do %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= item.price %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
