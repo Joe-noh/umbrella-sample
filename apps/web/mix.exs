@@ -39,6 +39,7 @@ defmodule Web.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
 
-     {:basket_manager, in_umbrella: true}]
+     {:basket_manager, in_umbrella: true},
+     {:payment, in_umbrella: true}]
   end
 end
