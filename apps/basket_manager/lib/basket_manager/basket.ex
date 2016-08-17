@@ -17,13 +17,13 @@ defmodule BasketManager.Basket do
     {:noreply, new_state}
   end
 
-  def handle_call(:total_price, _from, basket = %{items: items}) do
-    total = items
-      |> Enum.reduce(0, fn (item, acc) ->
-        item.price + acc
-      end)
+  def handle_call(:total_price, _from, basket) do
+    {:reply, calc_total(basket), basket}
+  end
 
-    {:reply, total, basket}
+  def handle_call(:content, _from, basket = %{items: items}) do
+    content = %{items: items, total_price: calc_total(basket)}
+    {:reply, content, basket}
   end
 
   # interfaces
@@ -36,7 +36,17 @@ defmodule BasketManager.Basket do
     GenServer.call(via(id), :total_price)
   end
 
+  def content(id) do
+    GenServer.call(via(id), :content)
+  end
+
+  # private functions
+
   defp via(basket_id) do
     {:via, :gproc, {:n, :l, {:basket, basket_id}}}
+  end
+
+  defp calc_total(%{items: items}) do
+    Enum.reduce(items, 0, &(&1.price + &2))
   end
 end

@@ -2,8 +2,7 @@ defmodule Web.BasketController do
   use Web.Web, :controller
 
   def show(conn, %{"basket_id" => basket_id}) do
-    # basket_content = Basket.content(basket_id)
-    basket_content = %{items: [%{name: "カレー", price: 300}]}
+    basket_content = BasketManager.basket_content(basket_id)
     render(conn, "show.html", content: basket_content)
   end
 

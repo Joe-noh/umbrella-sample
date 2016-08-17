@@ -1,6 +1,6 @@
 <h2>カゴのなか</h2>
 
-<%= if Enum.empty?(@content) do %>
+<%= if Enum.empty?(@content.items) do %>
 <p>空っぽです</p>
 <% else %>
 <table class="table">
