@@ -27,6 +27,10 @@ defmodule BasketManager do
     BasketManager.Basket.total_price(basket_id)
   end
 
+  def basket_content(basket_id) do
+    BasketManager.Basket.content(basket_id)
+  end
+
   defp generate_id do
     :crypto.strong_rand_bytes(16)
     |> :base64.encode_to_string

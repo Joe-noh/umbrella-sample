@@ -1,0 +1,1 @@
+<p>合計 <%= length(@content.items) %>点、<%= @content.total_price %>円のお買い上げでした。ありがとうございました。</p>
