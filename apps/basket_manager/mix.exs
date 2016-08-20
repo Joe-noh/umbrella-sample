@@ -18,7 +18,7 @@ defmodule BasketManager.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :gproc],
+    [applications: [:logger, :gproc, :crypto],
      mod: {BasketManager, []}]
   end
 
