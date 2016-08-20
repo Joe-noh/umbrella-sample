@@ -3,7 +3,7 @@ defmodule Web.CheckoutController do
 
   def create(conn, _params) do
     basket_id = conn.cookies["basket_id"]
-    content = BasketManager.basket_content(basket_id)
+    {:ok, content} = BasketManager.basket_content(basket_id)
 
     Payment.checkout(content)
 
