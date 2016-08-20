@@ -7,6 +7,8 @@ defmodule Web.CheckoutController do
 
     Payment.checkout(content)
 
-    render(conn, "create.html", content: content)
+    conn
+    |> delete_resp_cookie("basket_id")
+    |> render("create.html", content: content)
   end
 end
