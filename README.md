@@ -15,4 +15,16 @@ This consists of three applications
 
 - `mix deps.get`
 - `iex -S mix phoenix.server`
-- open http://localhost:4000/basket/new
+- open [http://localhost:4000/basket/new](http://localhost:4000/basket/new)
+
+### Release
+
+- build releases
+  - `MIX_ENV=prod mix release --env=prod --name=basket_manager`
+  - `MIX_ENV=prod mix release --env=prod --name=payment`
+  - `MIX_ENV=prod mix release --env=prod --name=web`
+- run
+  - `rel/basket_manager/bin/bsaket_manager start`
+  - `rel/payment/bin/bsaket_manager start`
+  - `PORT=4000 rel/web/bin/web start`
+- open [http://localhost:4000/basket/new](http://localhost:4000/basket/new)
