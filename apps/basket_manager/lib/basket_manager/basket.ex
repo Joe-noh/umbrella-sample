@@ -40,6 +40,12 @@ defmodule BasketManager.Basket do
     GenServer.call(via(id), :content)
   end
 
+  def terminate(id) do
+    reg_tuple(id)
+    |> :gproc.whereis_name
+    |> BasketManager.BasketSup.terminate_child()
+  end
+
   def exists?(basket_id) do
     reg_tuple(basket_id) |> :gproc.whereis_name() != :undefined
   end

@@ -43,6 +43,14 @@ defmodule BasketManager do
     end
   end
 
+  def terminate(basket_id) do
+    if BasketManager.Basket.exists?(basket_id) do
+      BasketManager.Basket.terminate(basket_id)
+    else
+      :error
+    end
+  end
+
   def exists?(basket_id) do
     BasketManager.Basket.exists?(basket_id)
   end

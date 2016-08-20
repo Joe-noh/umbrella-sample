@@ -6,6 +6,7 @@ defmodule Web.CheckoutController do
     {:ok, content} = BasketManager.basket_content(basket_id)
 
     Payment.checkout(content)
+    BasketManager.terminate(basket_id)
 
     conn
     |> delete_resp_cookie("basket_id")
