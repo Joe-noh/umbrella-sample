@@ -1,7 +1,8 @@
 defmodule Web.CheckoutController do
   use Web.Web, :controller
 
-  def create(conn, %{"basket_id" => basket_id}) do
+  def create(conn, _params) do
+    basket_id = conn.cookies["basket_id"]
     content = BasketManager.basket_content(basket_id)
 
     Payment.checkout(content)

@@ -1,11 +1,12 @@
 defmodule Web.BasketItemController do
   use Web.Web, :controller
 
-  def create(conn, %{"basket_id" => basket_id}) do
+  def create(conn, _params) do
+    basket_id = conn.cookies["basket_id"]
     BasketManager.add_item(basket_id, dummy_item)
 
     conn
-    |> redirect(to: basket_path(conn, :show, basket_id))
+    |> redirect(to: basket_path(conn, :show))
   end
 
   defp dummy_item do
