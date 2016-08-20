@@ -1,1 +1,0 @@
-<%= button("買い物カゴを見る", to: basket_path(@conn, :create), class: "btn btn-primary") %>

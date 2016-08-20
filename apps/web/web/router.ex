@@ -16,12 +16,10 @@ defmodule Web.Router do
   scope "/", Web do
     pipe_through :browser # Use the default browser stack
 
-    get  "/basket/new",        BasketController, :new
-    get  "/basket/:basket_id", BasketController, :show
-    post "/basket",            BasketController, :create
+    get  "/basket", BasketController, :show
 
-    post "/basket/:basket_id/item", BasketItemController, :create
-    post "/basket/:basket_id/checkout", CheckoutController, :create
+    post "/basket/item", BasketItemController, :create
+    post "/basket/checkout", CheckoutController, :create
   end
 
   # Other scopes may use custom stacks.

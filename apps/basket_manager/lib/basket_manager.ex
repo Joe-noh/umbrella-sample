@@ -20,15 +20,39 @@ defmodule BasketManager do
   end
 
   def add_item(basket_id, item) do
-    BasketManager.Basket.add_item(basket_id, item)
+    if BasketManager.Basket.exists?(basket_id) do
+      {:ok, BasketManager.Basket.add_item(basket_id, item)}
+    else
+      :error
+    end
   end
 
   def total_price(basket_id) do
-    BasketManager.Basket.total_price(basket_id)
+    if BasketManager.Basket.exists?(basket_id) do
+      {:ok, BasketManager.Basket.total_price(basket_id)}
+    else
+      :error
+    end
   end
 
   def basket_content(basket_id) do
-    BasketManager.Basket.content(basket_id)
+    if BasketManager.Basket.exists?(basket_id) do
+      {:ok, BasketManager.Basket.content(basket_id)}
+    else
+      :error
+    end
+  end
+
+  def terminate(basket_id) do
+    if BasketManager.Basket.exists?(basket_id) do
+      BasketManager.Basket.terminate(basket_id)
+    else
+      :error
+    end
+  end
+
+  def exists?(basket_id) do
+    BasketManager.Basket.exists?(basket_id)
   end
 
   defp generate_id do

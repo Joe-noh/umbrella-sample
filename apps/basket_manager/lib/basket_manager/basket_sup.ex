@@ -16,4 +16,8 @@ defmodule BasketManager.BasketSup do
   def new_child(basket_id) do
     Supervisor.start_child(__MODULE__, [basket_id])
   end
+
+  def terminate_child(pid) do
+    Supervisor.terminate_child(__MODULE__, pid)
+  end
 end

@@ -40,10 +40,24 @@ defmodule BasketManager.Basket do
     GenServer.call(via(id), :content)
   end
 
+  def terminate(id) do
+    reg_tuple(id)
+    |> :gproc.whereis_name
+    |> BasketManager.BasketSup.terminate_child()
+  end
+
+  def exists?(basket_id) do
+    reg_tuple(basket_id) |> :gproc.whereis_name() != :undefined
+  end
+
   # private functions
 
+  def reg_tuple(basket_id) do
+    {:n, :l, {:basket, basket_id}}
+  end
+
   defp via(basket_id) do
-    {:via, :gproc, {:n, :l, {:basket, basket_id}}}
+    {:via, :gproc, reg_tuple(basket_id)}
   end
 
   defp calc_total(%{items: items}) do
