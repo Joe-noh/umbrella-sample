@@ -28,14 +28,17 @@ end
 # will be used by default
 
 release :basket_manager do
+  set vm_args: "apps/basket_manager/vm.args"
   set version: current_version(:basket_manager)
 end
 
 release :payment do
+  set vm_args: "apps/payment/vm.args"
   set version: current_version(:payment)
 end
 
 release :web do
+  set vm_args: "apps/web/vm.args"
   set version: current_version(:web)
 end
 
