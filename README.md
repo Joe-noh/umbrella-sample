@@ -9,7 +9,7 @@ This consists of three applications
   - does nothing at this point
 - `:web`
   - provides web interface
-  - pheonix application
+  - phoenix application
 
 ### Run
 
@@ -24,7 +24,7 @@ This consists of three applications
   - `MIX_ENV=prod mix release --env=prod --name=payment`
   - `MIX_ENV=prod mix release --env=prod --name=web`
 - run
-  - `rel/basket_manager/bin/bsaket_manager start`
-  - `rel/payment/bin/bsaket_manager start`
+  - `rel/basket_manager/bin/basket_manager start`
+  - `rel/payment/bin/basket_manager start`
   - `PORT=4000 rel/web/bin/web start`
 - open [http://localhost:4000/basket/new](http://localhost:4000/basket/new)
