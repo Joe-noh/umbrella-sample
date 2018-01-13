@@ -20,10 +20,14 @@ This branch has three applications in `apps`
 
 ```console
 # console 1
-$ cd ./apps/db && iex --sname db@127.0.0.1 --cookie abc -S mix
+$ mix do deps.get, compile
+$ mix release db
+$ mix release main
+$ ./_build/dev/rel/main/bin/db console --cookie=abc
 
 # console 2
-$ cd ./apps/main && iex --sname main@127.0.0.1 --cookie abc -S mix
+$ ./_build/dev/rel/main/bin/main console --cookie=abc
+
 iex(main@127.0.0.1)1> DbInterface.select_all
 [%{"dummy" => "data"}]
 ```
