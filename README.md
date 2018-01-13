@@ -23,7 +23,7 @@ This branch has three applications in `apps`
 $ cd ./apps/db && iex --sname db@localhost --cookie abc -S mix
 
 # console 2
-$ cd ./apps/db && iex --sname main@localhost --cookie abc -S mix
+$ cd ./apps/main && iex --sname main@localhost --cookie abc -S mix
 iex(main@localhost)1> DbInterface.select_all
 [%{"dummy" => "data"}]
 ```
